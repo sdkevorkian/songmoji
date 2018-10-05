@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import './App.css';
-import SongSearch from './SongSearch/SongSearch.js';
+import SongSearch from './components/SongSearch/SongSearch.js';
 
 class App extends Component {
     state = {
