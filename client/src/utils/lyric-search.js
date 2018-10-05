@@ -7,7 +7,7 @@ async function getSongLyrics(artist, title) {
 }
 
 async function translateSongLyrics(lyrics) {
-    var response = await fetch('/api/emoji', { method: "POST", body: JSON.stringify(lyrics) });
+    var response = await fetch('/api/emoji', { method: "POST", body: JSON.stringify({ lyrics: lyrics }), headers: { "Content-Type": "application/json" } });
     var emojied = await response.json();
 
     if (response.status !== 200) return (emojied.error);
