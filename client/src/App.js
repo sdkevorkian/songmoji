@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SongSearchBoxes from './SongSearchBoxes/SongSearchBoxes.js';
 
 class App extends Component {
     state = {
@@ -20,22 +21,13 @@ class App extends Component {
     }
     render() {
         return (
-            <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                >
-                Learn React
-                </a>
-                </header>
-            <p className="App-intro">{this.state.response}</p>
+            <div className="App container-fluid">
+            <h1 class="title">
+                songmoji    
+            </h1>
+            <p>search for a song and translate the lyrics into emojis!</p>
+            <SongSearchBoxes/>
+            {/*<p className="App-intro">{this.state.response}</p>*/}
             </div>
         );
     }
