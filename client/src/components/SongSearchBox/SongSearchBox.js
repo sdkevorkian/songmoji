@@ -3,7 +3,6 @@ import './SongSearchBox.css';
 
 class SongSearchBox extends Component {
     onChange = (e) => {
-        console.log(e.target.value)
         this.props.handleChange(this.props.field, e.target.value)
     }
     render() {

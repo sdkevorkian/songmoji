@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import SongSearchBox from '../SongSearchBox/SongSearchBox.js';
 import SongSearchButton from '../SongSearchButton/SongSearchButton.js';
+import songsApi from '../../utils/lyric-search';
 
 class SongSearch extends Component {
     state = {
         artist: '',
-        songTitle: ''
+        songTitle: '',
+        lyrics: ''
+
     }
     handleChange = (field, value) => {
         this.setState({
@@ -14,7 +17,12 @@ class SongSearch extends Component {
     }
 
     handleClick = () => {
-        console.log(this.state.artist, this.state.songTitle);
+        songsApi.getSongLyrics(this.state.artist, this.state.songTitle)
+            .then((lyrics) => {
+                this.setState({
+                    lyrics: lyrics
+                });
+            });
     }
     render() {
         return (
@@ -34,6 +42,7 @@ class SongSearch extends Component {
                 <SongSearchButton
                     handleClick={this.handleClick}
                 />
+                {this.state.lyrics}
             </div>
         )
     }
