@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SongSearchBoxes from './SongSearchBoxes/SongSearchBoxes.js';
@@ -21,11 +21,11 @@ class App extends Component {
     }
     render() {
         return (
-            <div className="App container-fluid">
+            <div className="App container">
             <h1 class="title">
                 songmoji    
             </h1>
-            <p>search for a song and translate the lyrics into emojis!</p>
+            <p>search🔎 for a song🎶 and translate📚 the lyrics🎵 into emojis😄!</p>
             <SongSearchBoxes/>
             {/*<p className="App-intro">{this.state.response}</p>*/}
             </div>
