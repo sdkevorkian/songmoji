@@ -1,0 +1,9 @@
+.song-search .form-group {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.form-control:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0.1rem 0.1rem var(--pink);
+}

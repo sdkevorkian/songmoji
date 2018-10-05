@@ -4,6 +4,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
     background-color: var(--cool-dark-gray);
     color: var(--cream);
 }
@@ -16,4 +17,7 @@ code {
 :root {
     --cool-dark-gray: #282c34;
     --cream: #FFF6F1;
+    --dark-blue: #17466E;
+    --pink: #F8Af9E;
+    --yellow: #FAE098;
 }

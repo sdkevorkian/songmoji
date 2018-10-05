@@ -1,7 +1,6 @@
 ﻿import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SongSearchBoxes from './SongSearchBoxes/SongSearchBoxes.js';
+import SongSearch from './SongSearch/SongSearch.js';
 
 class App extends Component {
     state = {
@@ -10,7 +9,7 @@ class App extends Component {
     componentDidMount() {
         this.callApi()
             .then(res => this.setState({ response: res.express }))
-            .catch(err => console.err(err));
+            .catch(err => console.error(err));
     }
     callApi = async () => {
         const response = await fetch('/api/hello');
@@ -22,12 +21,13 @@ class App extends Component {
     render() {
         return (
             <div className="App container">
-            <h1 class="title">
-                songmoji    
-            </h1>
-            <p>search🔎 for a song🎶 and translate📚 the lyrics🎵 into emojis😄!</p>
-            <SongSearchBoxes/>
-            {/*<p className="App-intro">{this.state.response}</p>*/}
+                <h1 className="title">
+                    songmoji    
+                </h1>
+                <p>search🔎 for a song🎶 and translate📚 the lyrics🎵 into emojis😄!</p>
+                <SongSearch />
+                        
+                {/*<p className="App-intro">{this.state.response}</p>*/}
             </div>
         );
     }
