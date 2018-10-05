@@ -7,7 +7,8 @@ class SongSearch extends Component {
     state = {
         artist: '',
         songTitle: '',
-        lyrics: ''
+        lyrics: '',
+        translatedLyrics: ''
 
     }
     handleChange = (field, value) => {
@@ -22,8 +23,12 @@ class SongSearch extends Component {
                 this.setState({
                     lyrics: lyrics
                 });
+                songsApi.translateSongLyrics(lyrics).then((emojis) => {
+                    console.log(emojis);
+                });
             });
     }
+
     render() {
         return (
             <div className="row song-search">
