@@ -5,10 +5,10 @@ const LyricsDisplay = (props) => {
     return (
         <div className="lyrics">
             {props.lyrics.translated.map((lyric, i) => {
-                return <p className="lyric" key={i}>
-                    <span className="translated">{lyric}</span>
+                return <div className="lyric" key={i}>
+                    <p className="translated">{lyric}</p>
                     <span className="original">{props.lyrics.original[i]}</span>
-                </p>
+                </div>
             })}
         </div>
     )

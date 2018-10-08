@@ -1,6 +1,6 @@
 .song-search .btn {
     margin: 1rem auto;
-    background-color: var(--dark-blue);
+    background-color: var(--blue);
     color: var(--cream);
     padding: 0.5rem 2rem;
 }

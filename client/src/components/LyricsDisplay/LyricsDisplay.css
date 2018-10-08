@@ -21,12 +21,16 @@
     left: 0;
     right: 0;
     z-index: 10;
-    background-color: var(--yellow);
+    background-color: var(--rose);
     color: var(--cool-dark-gray);
-    border: 1px solid var(--cool-dark-gray);
+    border: 2px solid var(--dark-blue);
     padding: 0.5em;
 }
 
 .translated:hover + .original {
     display: block;
+}
+
+.translated {
+    width: 100%;
 }

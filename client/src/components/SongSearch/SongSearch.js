@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import SongSearchBox from '../SongSearchBox/SongSearchBox.js';
 import SongSearchButton from '../SongSearchButton/SongSearchButton.js';
 import LyricsDisplay from '../LyricsDisplay/LyricsDisplay.js';
+import Loading from '../Loading/Loading';
 import songsApi from '../../utils/lyric-search';
 
 class SongSearch extends Component {
@@ -9,7 +10,7 @@ class SongSearch extends Component {
         artist: '',
         songTitle: '',
         lyrics: '',
-        loading: true,
+        loading: false,
         invalid: false
     }
     handleChange = (field, value) => {
@@ -18,8 +19,12 @@ class SongSearch extends Component {
         });
     }
 
-    handleClick = () => {
+    handleSearch = () => {
+        console.log('test');
         if (this.state.artist && this.state.songTitle) {
+            this.setState({
+                loading: true
+            });
             songsApi.getSongLyrics(this.state.artist, this.state.songTitle)
                 .then((lyrics) => {
                     songsApi.translateSongLyrics(lyrics).then((emojis) => {
@@ -65,12 +70,13 @@ class SongSearch extends Component {
                     handleChange={this.handleChange}
                 />
                 <SongSearchButton
-                    handleClick={this.handleClick}
+                    handleClick={this.handleSearch}
                 />
                 </div>
                 {this.state.invalid ? <p>Please make sure you have both an artist and a song title!</p> : ''}
-                {this.state.loading ? <p></p> :
-                    <LyricsDisplay lyrics={this.state.lyrics}/>}
+                
+                {this.state.loading ? <Loading text="loading" /> :  this.state.lyrics ? <LyricsDisplay lyrics={this.state.lyrics} /> : '' }
+                
             </div>
         )
     }
