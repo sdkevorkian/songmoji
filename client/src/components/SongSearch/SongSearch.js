@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import SongSearchBox from '../SongSearchBox/SongSearchBox.js';
 import SongSearchButton from '../SongSearchButton/SongSearchButton.js';
+import LyricsDisplay from '../LyricsDisplay/LyricsDisplay.js';
 import songsApi from '../../utils/lyric-search';
-import './SongSearch.css';
 
 class SongSearch extends Component {
     state = {
         artist: '',
         songTitle: '',
         lyrics: '',
-        loading: true
-
+        loading: true,
+        invalid: false
     }
     handleChange = (field, value) => {
         this.setState({
@@ -19,18 +19,22 @@ class SongSearch extends Component {
     }
 
     handleClick = () => {
-        
-        songsApi.getSongLyrics(this.state.artist, this.state.songTitle)
-            .then((lyrics) => {
-                songsApi.translateSongLyrics(lyrics).then((emojis) => {
-                    this.setState({
-                        lyrics: this.splitLyrics(lyrics, emojis.emojis),
-                        loading: false
+        if (this.state.artist && this.state.songTitle) {
+            songsApi.getSongLyrics(this.state.artist, this.state.songTitle)
+                .then((lyrics) => {
+                    songsApi.translateSongLyrics(lyrics).then((emojis) => {
+                        this.setState({
+                            lyrics: this.splitLyrics(lyrics, emojis.emojis),
+                            loading: false,
+                            invalid: false
+                        });
                     });
-                console.log('test'); // maybe set state here
                 });
+        } else {
+            this.setState({
+                invalid: true
             });
-                   
+        }
     }
 
     splitLyrics = (lyrics, emojiLyrics) => {
@@ -63,14 +67,10 @@ class SongSearch extends Component {
                 <SongSearchButton
                     handleClick={this.handleClick}
                 />
-            </div>
-                <div className="lyrics">
-                    {this.state.loading ? <p></p> 
-                        : this.state.lyrics.translated.map((lyric, i) => {
-                            return <p className="lyric" key={i}><span className="translated">{lyric}</span> <span className="original">{this.state.lyrics.original[i]}</span></p>
-                    })}
-
                 </div>
+                {this.state.invalid ? <p>Please make sure you have both an artist and a song title!</p> : ''}
+                {this.state.loading ? <p></p> :
+                    <LyricsDisplay lyrics={this.state.lyrics}/>}
             </div>
         )
     }
