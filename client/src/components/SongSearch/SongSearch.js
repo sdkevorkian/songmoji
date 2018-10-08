@@ -9,7 +9,7 @@ class SongSearch extends Component {
         artist: '',
         songTitle: '',
         lyrics: '',
-        translatedLyrics: ''
+        loading: true
 
     }
     handleChange = (field, value) => {
@@ -22,23 +22,27 @@ class SongSearch extends Component {
         
         songsApi.getSongLyrics(this.state.artist, this.state.songTitle)
             .then((lyrics) => {
-                console.log(this.splitLyrics(lyrics));
-
-                this.setState({
-                    lyrics: lyrics
-                });
                 songsApi.translateSongLyrics(lyrics).then((emojis) => {
                     this.setState({
-                        translatedLyrics: emojis.emojis
+                        lyrics: this.splitLyrics(lyrics, emojis.emojis),
+                        loading: false
                     });
+                console.log('test'); // maybe set state here
                 });
             });
                    
     }
 
-    splitLyrics = (lyrics) => {
-        console.log(lyrics);
-        return lyrics.split(/(\\r\\n|\\r|\\n|\r|\n|\r\n)/); // add filter to remove whitespace only entries
+    splitLyrics = (lyrics, emojiLyrics) => {
+        return {
+            original: this.filterEmptyPhrases(lyrics.split(/(\\r\\n|\\r|\\n|\r|\n|\r\n)/)),
+            translated: this.filterEmptyPhrases(emojiLyrics.split(/(\\r\\n|\\r|\\n|\r|\n|\r\n)/))}
+    }
+
+    filterEmptyPhrases = (song) => {
+        return song.filter((lyric) => {
+            return lyric.match(/[a-z]/i);
+        });
     }
     render() {
         return (
@@ -61,8 +65,11 @@ class SongSearch extends Component {
                 />
             </div>
                 <div className="lyrics">
-                    {this.state.translatedLyrics}
-                    {this.state.lyrics}
+                    {this.state.loading ? <p></p> 
+                        : this.state.lyrics.translated.map((lyric, i) => {
+                            return <p className="lyric" key={i}><span className="translated">{lyric}</span> <span className="original">{this.state.lyrics.original[i]}</span></p>
+                    })}
+
                 </div>
             </div>
         )

@@ -1,3 +1,33 @@
-.lyrics{
+.lyrics {
     white-space: pre;
+}
+
+.original {
+    display: none;
+}
+
+.lyric {
+    position: relative;
+    text-align: center;
+}
+
+.original {
+    display: none;
+    position: relative;
+    top: calc(100% + 1em);
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: var(--yellow);
+    color: var(--cool-dark-gray);
+    border: 1px solid var(--cool-dark-gray);
+    padding: 0.5em;
+    
+    height: auto;
+}
+
+.lyric:hover .original {
+    display: block;
 }
