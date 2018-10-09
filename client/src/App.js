@@ -20,14 +20,17 @@ class App extends Component {
     }
     render() {
         return (
-            <div className="App container">
-                <h1 className="title">
-                    songmoji    
-                </h1>
-                <p>search🔎 for a song🎶 and translate📚 the lyrics🎵 into emojis😄!</p>
-                <SongSearch />
-                        
-                {/*<p className="App-intro">{this.state.response}</p>*/}
+            <div className="App">
+                <main className="container">
+                    <h1 className="title">
+                        songmoji    
+                    </h1>
+                    <p>search🔎 for a song🎶 and translate📚 the lyrics🎵 into emojis😄!</p>
+                    <SongSearch />
+                </main>        
+                <footer class="footer">
+                    <p> © 2018 <a href="http://www.sarakevorkian.com" target="_blank"> Sara Kevorkian</a></p>
+                </footer>
             </div>
         );
     }
