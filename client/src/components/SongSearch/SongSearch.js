@@ -58,24 +58,28 @@ class SongSearch extends Component {
             <div className="song-search">
                 <div className="row">
                 <SongSearchBox
-                    label="artist"
-                    field="artist"
-                    colSize="6"
-                    handleChange={this.handleChange}
+                        label="artist"
+                        field="artist"
+                        colSize="6"
+                        handleChange={this.handleChange}
+                        onHitEnter={this.handleSearch}
+                        isInvalid={this.state.invalid && !this.state.artist}
                 />
                 <SongSearchBox
                     label="song title"
                     field="songTitle"
                     colSize="6"
                     handleChange={this.handleChange}
+                    onHitEnter={this.handleSearch}
+                    isInvalid={this.state.invalid && !this.state.songTitle}
                 />
                 <SongSearchButton
                     handleClick={this.handleSearch}
                 />
                 </div>
-                {this.state.invalid ? <p>Please make sure you have both an artist and a song title!</p> : ''}
+                {this.state.invalid && !this.state.loading ? <p>Please make sure you have both an artist and a song title!</p> : ''}
                 
-                {this.state.loading ? <Loading text="loading" /> :  this.state.lyrics ? <LyricsDisplay lyrics={this.state.lyrics} /> : '' }
+                {this.state.loading ? <Loading text="loading" /> :  this.state.lyrics && !this.state.invalid ? <LyricsDisplay lyrics={this.state.lyrics} /> : '' }
                 
             </div>
         )

@@ -28,7 +28,7 @@ class App extends Component {
                     <p>search🔎 for a song🎶 and translate📚 the lyrics🎵 into emojis😄!</p>
                     <SongSearch />
                 </main>        
-                <footer class="footer">
+                <footer className="footer">
                     <p> © 2018 <a href="http://www.sarakevorkian.com" target="_blank"> Sara Kevorkian</a></p>
                 </footer>
             </div>
