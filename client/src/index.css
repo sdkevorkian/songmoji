@@ -1,18 +1,31 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: "Reforma 1969 Gris", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
+    letter-spacing: 1px;
     background-color: var(--cool-dark-gray);
     color: var(--cream);
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+    font-family: 'Mash-up';
+    src: url('./fonts/Mash-up.otf') format('opentype'), url('./fonts/Mash-up.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Reforma 1969 Gris';
+    src: url('./fonts/Reforma1969-Gris.eot') format('embedded-opentype'), url('./fonts/Reforma1969-Gris.ttf') format('truetype'), url('./fonts/Reforma1969-Gris.woff') format('woff'),url('./fonts/Reforma1969-Gris.woff') format('woff'),url('./fonts/Reforma1969-Gris.woff2') format('woff2');
+}
+
 
 :root {
     --cool-dark-gray: #282c34;

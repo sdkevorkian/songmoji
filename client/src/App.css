@@ -6,10 +6,14 @@
 
 .title {
     margin-bottom: 1rem;
+    font-family: 'Mash-up', serif;
+    font-size: 4rem;
+    letter-spacing: 10px;
 }
 
 main {
     min-height: calc(95vh - 4em);
+    font-size: 1.1em
 }
 
 .footer {
