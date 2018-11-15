@@ -6,7 +6,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
     letter-spacing: 1px;
-    background-color: var(--cool-dark-gray);
+    /*background-color: var(--cool-dark-gray);*/
+    background: var(--blue-gradient);
     color: var(--cream);
 
 }
@@ -36,4 +37,5 @@ code {
     --rose: #FFE6EB;
     --red: #fd3447;
     --yellow: #FAE098;
+    --blue-gradient: linear-gradient(var(--cool-dark-gray), var(--blue));
 }
