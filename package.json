@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "moji-translate": "^1.0.8"
+    "moji-translate": "^1.0.8",
+    "mongoose": "^5.3.12"
   },
   "devDependencies": {
     "concurrently": "^3.5.0"

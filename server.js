@@ -7,6 +7,9 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/songmoji', { useNewUrlParser: true });
+
 app.get('/api/hello', (req, res) => {
     res.send({ express: 'Hello From Express' });
 });
