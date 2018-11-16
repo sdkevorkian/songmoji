@@ -20,7 +20,6 @@ class SongSearch extends Component {
     }
 
     handleSearch = () => {
-        console.log('test');
         if (this.state.artist && this.state.songTitle) {
             this.setState({
                 loading: true
@@ -45,7 +44,8 @@ class SongSearch extends Component {
     splitLyrics = (lyrics, emojiLyrics) => {
         return {
             original: this.filterEmptyPhrases(lyrics.split(/(\\r\\n|\\r|\\n|\r|\n|\r\n)/)),
-            translated: this.filterEmptyPhrases(emojiLyrics.split(/(\\r\\n|\\r|\\n|\r|\n|\r\n)/))}
+            translated: this.filterEmptyPhrases(emojiLyrics.split(/(\\r\\n|\\r|\\n|\r|\n|\r\n)/))
+        }
     }
 
     filterEmptyPhrases = (song) => {

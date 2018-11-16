@@ -29,7 +29,7 @@ class App extends Component {
                     <SongSearch />
                 </main>        
                 <footer className="footer">
-                    <p> © 2018 <a href="http://www.sarakevorkian.com" target="_blank"> Sara Kevorkian</a></p>
+                    <p> © 2018 <a href="http://www.sarakevorkian.com" target="_blank" rel="noopener noreferrer"> Sara Kevorkian</a></p>
                 </footer>
             </div>
         );

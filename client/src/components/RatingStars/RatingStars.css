@@ -1,0 +1,24 @@
+.stars {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    z-index: 10;
+}
+
+.rating-title {
+    font-size: 12px;
+    margin: 10px 0 0 0;
+}
+
+.rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    cursor: pointer;
+}
+
+.fa-star:hover,
+.fa-star:hover ~ .fa-star,
+.fa-star.active,
+.fa-star.active ~ .fa-star {
+    color: var(--yellow);
+}
